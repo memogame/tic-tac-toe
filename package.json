@@ -1,0 +1,23 @@
+{
+  "name": "tic-tac-toe",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/memogame/tic-tac-toe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/memogame/tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/memogame/tic-tac-toe#readme",
+  "dependencies": {
+    "express": "^4.15.0",
+    "socket.io": "^1.7.3"
+  }
+}
