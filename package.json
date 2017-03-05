@@ -22,6 +22,7 @@
   "homepage": "https://github.com/memogame/tic-tac-toe#readme",
   "dependencies": {
     "express": "^4.15.0",
+    "immutable": "^3.8.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "socket.io": "^1.7.3"
@@ -31,6 +32,7 @@
     "babel-loader": "^6.3.2",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-2": "^6.22.0",
     "react-hot-loader": "^1.3.1",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"

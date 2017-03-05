@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Item = ({value}) => {
+const Item = ({value, onItemClick}) => {
   const buttonStyle = {
     height: "100px",
     width: "100px"
   }
-  let string = " ";
+  let string = "?";
   switch (value) {
     case 1:
       string = "O";
@@ -14,6 +14,6 @@ const Item = ({value}) => {
       string = "X";
       break;
   }
-  return <button style={buttonStyle}>{string}</button>
+  return <button onClick={onItemClick} style={buttonStyle}>{string}</button>
 }
 export default Item;

@@ -6,9 +6,11 @@ class Board extends React.Component {
     super();
     this.lineToHtml = this.lineToHtml.bind(this);
   }
-  lineToHtml(line) {
-    return (<div>{line.map((value) => <Item value={value} />)}</div>)
+
+  lineToHtml(line, row) {
+    return (<div key={row}>{line.map((value, col) => <Item key={col} value={value} onItemClick={this.props.onItemClick(row, col)} />)}</div>)
   }
+
   render() {
     return (
       <div>
