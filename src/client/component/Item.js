@@ -14,6 +14,6 @@ const Item = ({value, onItemClick}) => {
       string = "X";
       break;
   }
-  return <button onClick={onItemClick} style={buttonStyle}>{string}</button>
+  return <button disabled={value !== 0} onClick={onItemClick} style={buttonStyle}>{string}</button>
 }
 export default Item;
