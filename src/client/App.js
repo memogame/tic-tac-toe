@@ -1,11 +1,15 @@
 import React from 'react';
 import Board from './component/Board';
 import Immutable from 'immutable';
-import { initialBoard } from '../game'
+import { initialBoard, determine } from '../game'
 export default class App extends React.Component {
   constructor() {
     super();
     this.state = { board: initialBoard, turn:1 }
+  }
+
+  renderResult({borad}) {
+
   }
 
   render() {
@@ -20,8 +24,11 @@ export default class App extends React.Component {
     return (
       <div>
         <Board
+          isFinished = {determine(this.state.board).isFinished}
           data={this.state.board}
           onItemClick={onItemClick} />
+        {this.renderResult(this.state.board)}
+        <button onClick={() => this.setState({...this.state, board:initialBoard, turn: 1 })}>Reset</button>
       </div>
     )
   }
