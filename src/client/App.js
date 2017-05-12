@@ -2,9 +2,15 @@ import React from 'react';
 import Board from './component/Board';
 import Immutable from 'immutable';
 import { initialBoard, determine } from '../game'
+import io from 'socket.io-client';
+
 export default class App extends React.Component {
   constructor() {
     super();
+    this.socket = io();
+    this.socket.on('change', ({board, turn}) => {
+      this.setState({board, turn});
+    })
     this.state = { board: initialBoard, turn:1 }
   }
 
@@ -14,12 +20,7 @@ export default class App extends React.Component {
 
   render() {
     const onItemClick = (row, col) => () => {
-      const { board } = this.state;
-      return this.setState({
-        ... this.state,
-        board: board.set(row, board.get(row).set(col, this.state.turn)),
-        turn: (this.state.turn) % 2 + 1
-      })
+      this.socket.emit('click', {row, col});
     };
     return (
       <div>
@@ -28,7 +29,7 @@ export default class App extends React.Component {
           data={this.state.board}
           onItemClick={onItemClick} />
         {this.renderResult(this.state.board)}
-        <button onClick={() => this.setState({...this.state, board:initialBoard, turn: 1 })}>Reset</button>
+        <button onClick={() => this.socket.emit('reset')}>Reset</button>
       </div>
     )
   }
